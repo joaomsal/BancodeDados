@@ -1,21 +1,22 @@
 package Beans;
 
 public class Exemplar {
-    private String Cod_ex , Edition_ex, Origem_ex, Titulo_ISBN;
+    private String  Origem_ex, Titulo_ISBN, Status_ex;
 
-    public String getCod_ex() {
-        return Cod_ex;
+    public String getStatus_ex() {
+        return Status_ex;
     }
 
-    public void setCod_ex(String Cod_ex) {
-        this.Cod_ex = Cod_ex;
+    public void setStatus_ex(String Status_ex) {
+        this.Status_ex = Status_ex;
     }
+    private int Edition_ex;
 
-    public String getEdition_ex() {
+    public int getEdition_ex() {
         return Edition_ex;
     }
 
-    public void setEdition_ex(String Edition_ex) {
+    public void setEdition_ex(int Edition_ex) {
         this.Edition_ex = Edition_ex;
     }
 

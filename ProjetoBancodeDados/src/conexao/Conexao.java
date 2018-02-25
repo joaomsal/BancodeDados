@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 
@@ -14,7 +13,7 @@ public class Conexao {
     
     
     public Connection CreateDB(){
-        try {
+        try { // Criação do banco de dados 
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
              con = DriverManager.getConnection("jdbc:derby:.\\DataBase\\Derby.DB;create = true");
                 
@@ -97,8 +96,8 @@ public class Conexao {
 "    REFERENCES Exemplar (Cod_ex)" +
 "    ON DELETE NO ACTION" +
 "    ON UPDATE NO ACTION)";
-                    String disconnect = "disconnect;";
-                       try {
+                    
+                       try { // Criação das Tabelas
                         PreparedStatement stmt = con.prepareStatement(createEnd);
                         stmt.execute();
                         stmt.close();
@@ -121,9 +120,6 @@ public class Conexao {
                         stmt6.execute();
                         stmt6.close();
                            System.out.println("CRIOU!!!");
-                      //  PreparedStatement stmt7 = con.prepareStatement(disconnect);
-                      //  stmt7.execute();
-                      //  stmt7.close();
                       Close();
                         JOptionPane.showMessageDialog(null, "TABELA CRIADA!");
                        }catch(SQLException e){
@@ -138,7 +134,7 @@ public class Conexao {
     }
     
     public Connection Conect(){
-        try {
+        try { // Conexão com o banco criado
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
             con = DriverManager.getConnection("jdbc:derby:.\\DataBase\\Derby.DB");
                 if(con != null){
@@ -157,14 +153,5 @@ public class Conexao {
             System.out.println("Erro"+ ex.getLocalizedMessage());
         }
     }
-    
-    public void insertEnd(){
-        try { 
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Titulo (Logradouro, num, bairro, cidade,estado, cep) VALUES(ooi,alguem,2015,eai,alguem)");
-        } catch (SQLException ex) {
-            System.out.println("ERRO -> "+ex.getMessage() );
-        }
-        
-    }
+
 }

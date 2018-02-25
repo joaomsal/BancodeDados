@@ -1,13 +1,15 @@
 package Beans;
 
-public class Emprestimo {
-    private String data_emp, Usuario_cpf_user;
+import java.sql.Date;
 
-    public String getData_emp() {
+public class Emprestimo {
+    private String Usuario_cpf_user;
+    private Date data_emp;
+    public Date getData_emp() {
         return data_emp;
     }
 
-    public void setData_emp(String data_emp) {
+    public void setData_emp(Date data_emp) {
         this.data_emp = data_emp;
     }
 
