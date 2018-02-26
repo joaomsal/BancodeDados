@@ -82,7 +82,7 @@ public class Conexao {
 "  autor VARCHAR(45) NOT NULL," +
 "  PRIMARY KEY (ISBN))";
                     String createEx = "CREATE TABLE Exemplar (" +
-"  Cod INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 0, INCREMENT BY 100)," +
+"  Cod INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 100, INCREMENT BY 100)," +
 "  Edicao INT NOT NULL," +
 "  Origem VARCHAR(45) NOT NULL ," +
 "  Status VARCHAR(45) NOT NULL DEFAULT 'DISPON�VEL'," +

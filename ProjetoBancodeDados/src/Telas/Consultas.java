@@ -1,5 +1,6 @@
 package Telas;
 
+import DAO.Inseredados;
 import DAO.UsuarioDAO;
 import conexao.Conexao;
 
@@ -12,7 +13,9 @@ public class Consultas extends javax.swing.JFrame {
               // Cria o banco caso ele ainda não exista 
             if(new Conexao().Conect()== null){
                 new Conexao().CreateDB();
-            }
+                new Inseredados().insere();
+            } 
+            
     }
     
   
@@ -170,8 +173,10 @@ public class Consultas extends javax.swing.JFrame {
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         // TODO add your handling code here:
+            //new Inseredados().insere();
             UsuarioDAO user = new UsuarioDAO();
             user.ConsultaUserP(new Conexao().Conect(), tabela);
+           // new Inseredados().insere();
     }//GEN-LAST:event_buscarActionPerformed
 
     private void geralItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_geralItemStateChanged

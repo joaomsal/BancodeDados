@@ -54,7 +54,7 @@ CREATE TABLE Exemplar (
   Cod INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 0, INCREMENT BY 100),
   Edicao INT NOT NULL,
   Origem VARCHAR(45) NOT NULL ,
-  Status VARCHAR(45) NOT NULL DEFAULT 'DISPON�VEL',
+  Status VARCHAR(45) NOT NULL DEFAULT 'DISPON�VEL',
   ISBN VARCHAR(45) NOT NULL,
   PRIMARY KEY (Cod),
   CONSTRAINT fk_Exemplar_Titulo1
@@ -89,3 +89,4 @@ CREATE TABLE Emprestimo (
 --INSERT INTO exemplar (edition_ex, origem_ex, status_ex, titulo_isbn) values (2,'doação','disponível','01010101')
 
 
+INSERT INTO emprestimo (data_emp, usuario_cpf_user, isbn, exemplar) values ('2018-02-01','','','')
