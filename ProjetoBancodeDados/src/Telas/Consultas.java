@@ -1,11 +1,18 @@
 package Telas;
 
+import DAO.UsuarioDAO;
+import conexao.Conexao;
+
 
 
 public class Consultas extends javax.swing.JFrame {
       
     public Consultas() {
         initComponents();
+              // Cria o banco caso ele ainda não exista 
+            if(new Conexao().Conect()== null){
+                new Conexao().CreateDB();
+            }
     }
     
   
@@ -163,14 +170,8 @@ public class Consultas extends javax.swing.JFrame {
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         // TODO add your handling code here:
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "meu", "Deus", "Consegui", "mudar", "isso ai "
-            }
-        ));
+            UsuarioDAO user = new UsuarioDAO();
+            user.ConsultaUserP(new Conexao().Conect(), tabela);
     }//GEN-LAST:event_buscarActionPerformed
 
     private void geralItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_geralItemStateChanged
@@ -204,8 +205,28 @@ public class Consultas extends javax.swing.JFrame {
     }//GEN-LAST:event_geralItemStateChanged
 
     private void especificoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_especificoItemStateChanged
-        // TODO add your handling code here:
+        // BUSCAS   
         buscar.setEnabled(true);
+            switch (especifico.getSelectedIndex()){
+                case 0:
+                    if(geral.getSelectedIndex() == 1)
+                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
+                                         new Object [][] {},
+                                        new String [] {
+                                        "NOME", "CPF", "RG", "EMAIL", "TELEFONE", "RUA","BAIRRO","N°","CIDADE"}));
+                    break;
+                case 1:
+                    if(geral.getSelectedIndex() == 1)
+                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
+                                         new Object [][] {},
+                                        new String [] {
+                                        "DATA DO EMPRÉSTIMO", "Nº EXEMPLAR","TÍTULO", "NOME DO USUÁRIO", "CPF", "AUTOR","ISBN"}));
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
     }//GEN-LAST:event_especificoItemStateChanged
 
     public static void main(String args[]) {
