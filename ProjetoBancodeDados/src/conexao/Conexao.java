@@ -29,16 +29,9 @@ public class Conexao {
 "  cidade VARCHAR(45) NOT NULL," +
 "  estado VARCHAR(45) NOT NULL," +
 "  cep VARCHAR(45) NOT NULL ," +
+"  UNIQUE (num,bairro,logradouro)," +
 "  PRIMARY KEY (id))";
-                    String createRes = "CREATE TABLE Reside_em (" +
-"  Endereco_id INT NOT NULL ," +
-"  id_reside INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
-"  PRIMARY KEY (id_reside)," +
-"  CONSTRAINT fk_Reside_em_Endereco" +
-"    FOREIGN KEY (Endereco_id)" +
-"    REFERENCES Endereco (id)" +
-"    ON DELETE NO ACTION" +
-"    ON UPDATE NO ACTION)" ;
+                    
                     String createUs ="CREATE TABLE Usuario (" +
 "  Cpf_user VARCHAR(15) NOT NULL," +
 "  Nome_user VARCHAR(45) NOT NULL ," +
@@ -46,10 +39,10 @@ public class Conexao {
 "  email_user VARCHAR(45)," +
 "  telefone_user VARCHAR(45)," +
 "  dataNac_user DATE NOT NULL," +
-"  Reside_em_id_reside INT NOT NULL," +
-"  PRIMARY KEY (Cpf_user),  CONSTRAINT fk_Usuario_Reside_em1" +
-"    FOREIGN KEY (Reside_em_id_reside)" +
-"    REFERENCES Reside_em (id_reside)" +
+"  mora INT NOT NULL," +
+"  PRIMARY KEY (Cpf_user),  CONSTRAINT fk_Usuario_Endereco1" +
+"    FOREIGN KEY (mora)" +
+"    REFERENCES Endereco(id)" +
 "    ON DELETE NO ACTION" +
 "    ON UPDATE NO ACTION)";
                     String createEmp="CREATE TABLE Emprestimo (" +
@@ -63,7 +56,7 @@ public class Conexao {
 "    FOREIGN KEY (Usuario_Cpf_user)" +
 "    REFERENCES Usuario (Cpf_user)" +
 "    ON DELETE NO ACTION" +
-"    ON UPDATE NO ACTION ," +
+"    ON UPDATE NO ACTION ,   " +
 "    CONSTRAINT fk_Emprestimo_Titulo1" +
 "    FOREIGN KEY (ISBN)" +
 "    REFERENCES Titulo(ISBN)" +
@@ -99,21 +92,18 @@ public class Conexao {
                         PreparedStatement stmt = con.prepareStatement(createEnd);
                         stmt.execute();
                         stmt.close();
-                        PreparedStatement stmt1 = con.prepareStatement(createRes);
+                        PreparedStatement stmt1 = con.prepareStatement(createUs);
                         stmt1.execute();
                         stmt1.close();
-                        PreparedStatement stmt2 = con.prepareStatement(createUs);
+                        PreparedStatement stmt2 = con.prepareStatement(createTit);
                         stmt2.execute();
                         stmt2.close();
-                        PreparedStatement stmt3 = con.prepareStatement(createTit);
+                        PreparedStatement stmt3 = con.prepareStatement(createEx);
                         stmt3.execute();
                         stmt3.close();
-                        PreparedStatement stmt4 = con.prepareStatement(createEx);
+                        PreparedStatement stmt4 = con.prepareStatement(createEmp);
                         stmt4.execute();
                         stmt4.close();
-                        PreparedStatement stmt5 = con.prepareStatement(createEmp);
-                        stmt5.execute();
-                        stmt5.close();
                            System.out.println("CRIOU!!!");
                       Close();
                         JOptionPane.showMessageDialog(null, "TABELA CRIADA!");

@@ -42,7 +42,7 @@ public class UsuarioDAO {
         try {
                Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT nome_user,cpf_user,rg_user, email_user, telefone_user, logradouro,bairro,"+ 
-                        "num,cidade FROM USUARIO NATURAL JOIN RESIDE_EM  NATURAL JOIN  ENDERECO");
+                        "num,cidade FROM USUARIO INNER JOIN ENDERECO ON (mora = id)");
                 //int i=0;
                     DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
                     dfm.setNumRows(0);

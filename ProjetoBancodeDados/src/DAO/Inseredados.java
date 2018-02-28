@@ -55,14 +55,18 @@ public class Inseredados {
 "INSERT INTO exemplar (edicao, origem, isbn) values (5,'doação','010101012')" ,
 "INSERT INTO emprestimo (data_emp, usuario_cpf_user, isbn, exemplar) values ('2017-11-01','101012','010101012',300)"};
 String [] sql1 = {"INSERT INTO Endereco (logradouro,num,bairro,cidade,estado,cep) values ('rua B',209,'centro','aracaju','SE','4900-000')",
-"INSERT INTO reside_em (endereco_id) values (1)",
-"INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,RESIDE_EM_ID_RESIDE) VALUES ('Ingryd Santos','10301012','1173111','1997-05-08', 1)" ,
-"INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,RESIDE_EM_ID_RESIDE) VALUES ('Jose da Silva','20301012','2173111','1977-05-08', 1)" ,
-"INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,RESIDE_EM_ID_RESIDE) VALUES ('Maria dos Santos','30301012','3173111','1967-05-08', 1)" ,
-"INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,RESIDE_EM_ID_RESIDE) VALUES ('Josefa da Silva','40301012','4173111','1995-05-08', 1)" ,
+"INSERT INTO Endereco (logradouro,num,bairro,cidade,estado,cep) values ('rua D',219,'São José','aracaju','SE','49100-000')",
+"INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,mora) VALUES ('Ingryd Santos','10301012','1173111','1997-05-08', 1)" ,
+"INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,mora) VALUES ('Jose da Silva','20301012','2173111','1977-05-08', 1)" ,
+"INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,mora) VALUES ('Maria dos Santos','30301012','3173111','1967-05-08', 1)" ,
+"INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,mora) VALUES ('Josefa da Silva','40301012','4173111','1995-05-08', 1)" ,
+"INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,mora) VALUES ('MArio Bros','45301012','4573111','1995-05-08', 2)" ,
 "INSERT INTO titulo (titulo,isbn,anopub,editora_obra,autor) values ('DEITEL','0101010120', '2011','Editora JAVA', 'DEITEL')" ,
+"INSERT INTO titulo (titulo,isbn,anopub,editora_obra,autor) values ('Cáculo','1101010120', '2018','Editora MATH', 'James Stwart')" ,
 "INSERT INTO exemplar (edicao, origem, isbn) values (3,'Compra','0101010120')" ,
 "INSERT INTO exemplar (edicao, origem, isbn) values (7,'Doação','0101010120')" ,
+"INSERT INTO exemplar (edicao, origem, isbn) values (7,'Doação','1101010120')" ,
+"INSERT INTO exemplar (edicao, origem, isbn) values (7,'Compra','1101010120')" ,
 "INSERT INTO exemplar (edicao, origem, isbn) values (7,'Compra','0101010120')"};
     
 }
