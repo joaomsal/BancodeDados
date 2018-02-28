@@ -43,11 +43,9 @@ public class UsuarioDAO {
                Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT nome_user,cpf_user,rg_user, email_user, telefone_user, logradouro,bairro,"+ 
                         "num,cidade FROM USUARIO INNER JOIN ENDERECO ON (mora = id)");
-                //int i=0;
                     DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
                     dfm.setNumRows(0);
                         while (rs.next()){
-                             //   for (int i = 0; i< rs.getRow(); i++) {
                                 dfm.addRow(new Object[]{
                                     rs.getString("nome_user"),
                                     rs.getString("cpf_user"),

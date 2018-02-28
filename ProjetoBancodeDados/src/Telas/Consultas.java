@@ -1,6 +1,7 @@
 package Telas;
 
 import DAO.Inseredados;
+import DAO.LivroDAO;
 import DAO.UsuarioDAO;
 import conexao.Conexao;
 
@@ -74,13 +75,15 @@ public class Consultas extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
         );
 
-        busca.setBackground(new java.awt.Color(0, 0, 0));
+        busca.setBackground(new java.awt.Color(255, 255, 255));
         busca.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        busca.setForeground(new java.awt.Color(255, 255, 255));
+        busca.setForeground(new java.awt.Color(0, 0, 0));
+        busca.setCaretColor(new java.awt.Color(0, 0, 0));
+        busca.setEnabled(false);
 
-        buscar.setBackground(new java.awt.Color(0, 0, 0));
+        buscar.setBackground(new java.awt.Color(255, 255, 255));
         buscar.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        buscar.setForeground(new java.awt.Color(255, 255, 255));
+        buscar.setForeground(new java.awt.Color(0, 0, 0));
         buscar.setText("PESQUISAR");
         buscar.setEnabled(false);
         buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -90,10 +93,12 @@ public class Consultas extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("BUSCA:");
 
-        geral.setBackground(new java.awt.Color(153, 153, 153));
-        geral.setForeground(new java.awt.Color(255, 255, 255));
+        geral.setBackground(new java.awt.Color(255, 255, 255));
+        geral.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        geral.setForeground(new java.awt.Color(0, 0, 0));
         geral.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "USUÁRIOS", "OBRAS", "EMPRÉSTIMOS" }));
         geral.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -101,8 +106,9 @@ public class Consultas extends javax.swing.JFrame {
             }
         });
 
-        especifico.setBackground(new java.awt.Color(153, 153, 153));
-        especifico.setForeground(new java.awt.Color(255, 255, 255));
+        especifico.setBackground(new java.awt.Color(255, 255, 255));
+        especifico.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        especifico.setForeground(new java.awt.Color(0, 0, 0));
         especifico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
         especifico.setEnabled(false);
         especifico.addItemListener(new java.awt.event.ItemListener() {
@@ -112,12 +118,15 @@ public class Consultas extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("TIPO DE BUSCA:");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("GERAL:");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("ESPECÍFICO:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -172,11 +181,7 @@ public class Consultas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-        // TODO add your handling code here:
-            //new Inseredados().insere();
-            UsuarioDAO user = new UsuarioDAO();
-            user.ConsultaUserP(new Conexao().Conect(), tabela);
-           // new Inseredados().insere();
+      
     }//GEN-LAST:event_buscarActionPerformed
 
     private void geralItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_geralItemStateChanged
@@ -214,11 +219,19 @@ public class Consultas extends javax.swing.JFrame {
         buscar.setEnabled(true);
             switch (especifico.getSelectedIndex()){
                 case 0:
-                    if(geral.getSelectedIndex() == 1)
+                    if(geral.getSelectedIndex() == 1){
                                     tabela.setModel(new javax.swing.table.DefaultTableModel(
                                          new Object [][] {},
                                         new String [] {
                                         "NOME", "CPF", "RG", "EMAIL", "TELEFONE", "RUA","BAIRRO","N°","CIDADE"}));
+                   new UsuarioDAO().ConsultaUserP(new Conexao().Conect(), tabela);}
+                    if(geral.getSelectedIndex() == 2){
+                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
+                                         new Object [][] {},
+                                        new String [] {
+                                        "OBRA", "EXEMPLARES CADASTRADOS"}));
+                    new LivroDAO().ConsultaLivro(new Conexao().Conect(), tabela);}
+                                        
                     break;
                 case 1:
                     if(geral.getSelectedIndex() == 1)
@@ -242,7 +255,7 @@ public class Consultas extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
