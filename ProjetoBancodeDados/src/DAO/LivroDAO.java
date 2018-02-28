@@ -67,7 +67,7 @@ public class LivroDAO {
                 dfm.setNumRows(0);  
                 while (rs.next()){
                                 dfm.addRow(new Object[]{
-                                    rs.getString("titulo.isbn"),
+                                    rs.getString("isbn"),
                                     rs.getString("titulo"),
                                     rs.getString("autor"),
                                     rs.getString("editora_obra"),

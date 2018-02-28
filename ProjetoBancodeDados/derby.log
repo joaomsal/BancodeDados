@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Wed Feb 28 18:10:28 GFT 2018:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0161-de40-900c-0000047a2d68
-no diretório de banco de dados C:\Users\RG 295\Documents\NetBeansProjects\UFS\ProjetoBancodeDados\DataBase\Derby.DB 
-
+Wed Feb 28 20:10:47 BRT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-0161-deae-b76d-000006147848 
+on database directory /home/jooaoom/NetBeansProjects/UFS/ProjetoBancodeDados/.\DataBase\Derby.1DB with class loader sun.misc.Launcher$AppClassLoader@7852e922 
+Loaded from file:/home/jooaoom/NetBeansProjects/UFS/ProjetoBancodeDados/src/Libs/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_144-b01
-user.dir=C:\Users\RG 295\Documents\NetBeansProjects\UFS\ProjetoBancodeDados
-os.name=Windows 10
+java.runtime.version=1.8.0_121-b13
+user.dir=/home/jooaoom/NetBeansProjects/UFS/ProjetoBancodeDados
+os.name=Linux
 os.arch=amd64
-os.version=10.0
+os.version=4.8.13-1-ARCH
 derby.system.home=null
-Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+Database Class Loader started - derby.database.classpath=''
