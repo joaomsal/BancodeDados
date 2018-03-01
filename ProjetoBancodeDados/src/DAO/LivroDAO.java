@@ -40,7 +40,7 @@ public class LivroDAO {
             public void ConsultaEx(Connection con, JTable tabela){
         try {
                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT cod,titulo,autor, edicao,anoPub, status  FROM EXEMPLAR INNER JOIN TITULO ON EXEMPLAR.ISBN = EXEMPLAR.ISBN");
+                ResultSet rs = stmt.executeQuery("SELECT cod,titulo,autor, edicao,anoPub, status  FROM EXEMPLAR INNER JOIN TITULO ON TITULO.ISBN = EXEMPLAR.ISBN");
                 DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
                 dfm.setNumRows(0);  
                 while (rs.next()){
@@ -51,6 +51,7 @@ public class LivroDAO {
                                     rs.getString("edicao"),
                                     rs.getString("anoPub"),
                                     rs.getString("status")});
+                                System.out.println(rs.getInt("cod"));
                   } 
                   con.close();
                   JOptionPane.showMessageDialog(null,"ENCONTRADO!");

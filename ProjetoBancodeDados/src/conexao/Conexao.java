@@ -15,7 +15,7 @@ public class Conexao {
     public Connection CreateDB(){
         try { // Criação do banco de dados 
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-             con = DriverManager.getConnection("jdbc:derby:.\\DataBase\\Derby.1DB;create = true");
+             con = DriverManager.getConnection("jdbc:derby:.\\DataBase\\Derby.D1B;create = true");
                 
                 if(con!=null){
                     JOptionPane.showMessageDialog(null, "BANCO DE DADOS CRIADO!");
@@ -121,7 +121,7 @@ public class Conexao {
     public Connection Conect(){
         try { // Conexão com o banco criado
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-            con = DriverManager.getConnection("jdbc:derby:.\\DataBase\\Derby.1DB");
+            con = DriverManager.getConnection("jdbc:derby:.\\DataBase\\Derby.D1B");
                 if(con != null){
                      JOptionPane.showMessageDialog(null, "CONECTADO!");
                 }
