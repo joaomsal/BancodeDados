@@ -44,25 +44,22 @@ public class Consultas extends javax.swing.JFrame {
         painel.setBackground(new java.awt.Color(0, 0, 0));
         painel.setBorder(new javax.swing.border.MatteBorder(null));
 
-        tabela.setBackground(new java.awt.Color(0, 0, 0));
-        tabela.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tabela.setForeground(new java.awt.Color(255, 255, 255));
+        tabela.setBackground(new java.awt.Color(255, 255, 255));
+        tabela.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tabela.setForeground(new java.awt.Color(0, 0, 0));
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nome", "Escola", "CONTATO"
+
             }
         ));
         tabela.setToolTipText("RESULTADOS");
-        tabela.setGridColor(new java.awt.Color(255, 255, 255));
-        tabela.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tabela.setGridColor(new java.awt.Color(204, 204, 204));
+        tabela.setSelectionBackground(new java.awt.Color(0, 102, 204));
+        tabela.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tabela);
-        if (tabela.getColumnModel().getColumnCount() > 0) {
-            tabela.getColumnModel().getColumn(0).setMaxWidth(30);
-        }
 
         javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
         painel.setLayout(painelLayout);
@@ -72,7 +69,9 @@ public class Consultas extends javax.swing.JFrame {
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+            .addGroup(painelLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         busca.setBackground(new java.awt.Color(255, 255, 255));
@@ -92,14 +91,14 @@ public class Consultas extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("BUSCA:");
 
         geral.setBackground(new java.awt.Color(255, 255, 255));
         geral.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         geral.setForeground(new java.awt.Color(0, 0, 0));
-        geral.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "USUÁRIOS", "OBRAS", "EXEMPLARES" }));
+        geral.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "USUÁRIOS", "EXEMPLARES", "OBRAS" }));
         geral.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 geralItemStateChanged(evt);
@@ -117,15 +116,15 @@ public class Consultas extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("TIPO DE BUSCA:");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("GERAL:");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("ESPECÍFICO:");
 
@@ -138,17 +137,17 @@ public class Consultas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 90, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(geral, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
+                            .addComponent(geral, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(especifico, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51)
+                                .addComponent(especifico, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(84, 84, 84)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(busca, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,7 +180,21 @@ public class Consultas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-      
+  
+        if(geral.getSelectedIndex() == 3 && especifico.getSelectedIndex()== 0 ){
+                   new LivroDAO().ConsultaLivro(new Conexao().Conect(), tabela,busca.getText()); }
+        if(geral.getSelectedIndex() == 3 && especifico.getSelectedIndex()==1){
+            new LivroDAO().ConsultaSimples(new Conexao().Conect(), tabela,busca.getText());}
+        if(geral.getSelectedIndex() == 1 && especifico.getSelectedIndex()==0){
+                   new UsuarioDAO().ConsultaUserP(new Conexao().Conect(), tabela,busca.getText());}
+        if(geral.getSelectedIndex() == 1 && especifico.getSelectedIndex()==1){
+                    new UsuarioDAO().ConsultaEmp(new Conexao().Conect(), tabela, busca.getText());}
+        if(geral.getSelectedIndex() == 2 && especifico.getSelectedIndex()== 0){
+                    new LivroDAO().ConsultaEx(new Conexao().Conect(), tabela,busca.getText());}
+        if(geral.getSelectedIndex() == 2 && especifico.getSelectedIndex()==1){     
+                    new LivroDAO().ConsultaLivrosDisp(new Conexao().Conect(), tabela,busca.getText());}
+        if(geral.getSelectedIndex() == 2 && especifico.getSelectedIndex()==2){
+                    new LivroDAO().ConsultaLivrosInd(new Conexao().Conect(), tabela,busca.getText());}
     }//GEN-LAST:event_buscarActionPerformed
 
     private void geralItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_geralItemStateChanged
@@ -200,15 +213,15 @@ public class Consultas extends javax.swing.JFrame {
                     break;
                 case 2:// OPÇÕES DE BUSCA PARA OBRAS
                     especifico.removeAllItems();
-                    especifico.addItem("EXEMPLARES");
+                    especifico.addItem("TODOS");
                     especifico.addItem("DISPONÍVEIS");
                     especifico.addItem("INDISPONÍVEIS");
-                    especifico.setEnabled(true);
+                   especifico.setEnabled(true);
                     break;
                 case 3: // OPÇÕES DE BUSCA PARA EMPRÉSTIMOS
                     especifico.removeAllItems();
-                    especifico.addItem("TODOS");
-                    especifico.addItem("");
+                    especifico.addItem("Nº DE EXEMPLARES POR OBRA");
+                    especifico.addItem("OBRAS CADASTRADAS");
                     especifico.setEnabled(true);
                     break;
             }
@@ -223,20 +236,23 @@ public class Consultas extends javax.swing.JFrame {
                                     tabela.setModel(new javax.swing.table.DefaultTableModel(
                                          new Object [][] {},
                                         new String [] {
-                                        "NOME", "CPF", "RG", "EMAIL", "TELEFONE", "RUA","BAIRRO","N°","CIDADE"}));
-                   new UsuarioDAO().ConsultaUserP(new Conexao().Conect(), tabela);}
-                    if(geral.getSelectedIndex() == 2){
-                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
-                                         new Object [][] {},
-                                        new String [] {
-                                        "OBRA", "EXEMPLARES CADASTRADOS"}));
-                    new LivroDAO().ConsultaLivro(new Conexao().Conect(), tabela);}
+                                        "NOME", "CPF", "RG", "EMAIL", "TELEFONE", "LOGRADOURO","BAIRRO","N°","CIDADE"}));
+                                            busca.setText("");
+                                            busca.setEnabled(true);}
                     if(geral.getSelectedIndex() == 3){
                                     tabela.setModel(new javax.swing.table.DefaultTableModel(
                                          new Object [][] {},
                                         new String [] {
-                                        "N° EXEMPLAR", "TÍTULO", "AUTOR", "EDIÇÃO", "ANO", "STATUS"}));    //cod,titulo,autor, edicao,anoPub, status
-                    new LivroDAO().ConsultaEx(new Conexao().Conect(), tabela);}
+                                        "OBRA", "EXEMPLARES CADASTRADOS"}));
+                                            busca.setText("");
+                                            busca.setEnabled(true);}
+                    if(geral.getSelectedIndex() == 2){
+                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
+                                        new Object [][] {},
+                                        new String [] {
+                                        "N° EXEMPLAR", "TÍTULO", "AUTOR", "EDIÇÃO", "ANO", "STATUS"}));
+                                            busca.setText("");
+                                            busca.setEnabled(true);}
                                         
                     break;
                 case 1:
@@ -245,24 +261,33 @@ public class Consultas extends javax.swing.JFrame {
                                          new Object [][] {},
                                         new String [] {
                                         "NOME DO USUÁRIO", "DATA DO EMPRÉSTIMO","TÍTULO", "AUTOR", "ISBN"}));
-                    new UsuarioDAO().ConsultaEmp(new Conexao().Conect(), tabela);}
+                                            busca.setText("");
+                                            busca.setEnabled(true);}
                    
                     if(geral.getSelectedIndex() == 2){
                                     tabela.setModel(new javax.swing.table.DefaultTableModel(
                                          new Object [][] {},
                                         new String [] {
-                                        "ISBN", "TÍTULO", "AUTOR", "EDITORA","ANO"}));     
-                    new LivroDAO().ConsultaLivrosDisp(new Conexao().Conect(), tabela);}
+                                        "N° EXEMPLAR","ISBN", "TÍTULO", "AUTOR", "EDITORA","ANO"}));
+                                            busca.setText("");
+                                            busca.setEnabled(true);}
+                    if(geral.getSelectedIndex() == 3){
+                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
+                                         new Object [][] {},
+                                        new String [] {
+                                        "ISBN","TÍTULO", "AUTOR", "EDITORA","ANO"}));
+                                            busca.setText("");
+                                            busca.setEnabled(true);}  //isbn, titulo, autor, editora, ano 
                     break;
                 case 2:
                     if(geral.getSelectedIndex() == 2){
                                     tabela.setModel(new javax.swing.table.DefaultTableModel(
                                          new Object [][] {},
                                         new String [] {
-                                        "ISBN", "TÍTULO", "AUTOR", "EDITORA","ANO"}));     
-                    new LivroDAO().ConsultaLivrosInd(new Conexao().Conect(), tabela);}
-                    break;
-                case 3:
+                                       "N° EXEMPLAR", "ISBN", "TÍTULO", "AUTOR", "EDITORA","ANO"}));
+                                            busca.setText("");
+                                            busca.setEnabled(true);}
+     
                     break;
             }
     }//GEN-LAST:event_especificoItemStateChanged

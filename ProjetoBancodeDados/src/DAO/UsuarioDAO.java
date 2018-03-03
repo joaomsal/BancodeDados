@@ -38,11 +38,11 @@ public class UsuarioDAO {
             return false;
         } }
         
-            public void ConsultaUserP(Connection con, JTable tabela){
+            public void ConsultaUserP(Connection con, JTable tabela, String consulta){
         try {
                Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT nome_user,cpf_user,rg_user, email_user, telefone_user, logradouro,bairro,"+ 
-                        "num,cidade FROM USUARIO INNER JOIN ENDERECO ON (mora = id)");
+                        "num,cidade FROM USUARIO INNER JOIN ENDERECO ON (mora = id) where lower(nome_user) like lower('%"+consulta+"%')");
                     DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
                     dfm.setNumRows(0);
                         while (rs.next()){
@@ -62,10 +62,10 @@ public class UsuarioDAO {
             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
         }   
     }
-            public void ConsultaEmp(Connection con, JTable tabela){
+            public void ConsultaEmp(Connection con, JTable tabela,String consulta){
         try {
                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("select data_emp,nome_user,titulo,autor, titulo.ISBN from emprestimo inner join usuario on cpf_user = usuario_cpf_user inner join titulo on emprestimo.ISBN = titulo.ISBN");
+                ResultSet rs = stmt.executeQuery("select emprestimo.data_emp, usuario.nome_user,titulo.titulo,titulo.autor,titulo.ISBN from emprestimo  inner join usuario on cpf_user = usuario_cpf_user inner join titulo on emprestimo.isbn = titulo.isbn where lower(nome_user) like lower('%"+consulta+"%')");
                              DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
                                 dfm.setNumRows(0);
                   while (rs.next()){
@@ -74,7 +74,7 @@ public class UsuarioDAO {
                                     rs.getString("data_emp"),
                                     rs.getString("titulo"),
                                     rs.getString("autor"),
-                                    rs.getString("titulo.isbn")});
+                                    rs.getString("isbn")});
                   } 
                   con.close();
                   JOptionPane.showMessageDialog(null,"ENCONTRADO!");
