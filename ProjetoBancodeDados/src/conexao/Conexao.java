@@ -78,7 +78,7 @@ public class Conexao {
 "  Cod INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 100, INCREMENT BY 100)," +
 "  Edicao INT NOT NULL," +
 "  Origem VARCHAR(45) NOT NULL ," +
-"  Status VARCHAR(45) NOT NULL DEFAULT 'DISPON�VEL'," +
+"  Status VARCHAR(45) NOT NULL DEFAULT 'DISPONIVEL'," +
 "  ISBN VARCHAR(45) NOT NULL," +
 "  PRIMARY KEY (Cod)," +
 "  CONSTRAINT fk_Exemplar_Titulo1" +
@@ -106,14 +106,14 @@ public class Conexao {
                         stmt4.close();
                            System.out.println("CRIOU!!!");
                       Close();
-                        JOptionPane.showMessageDialog(null, "TABELA CRIADA!");
+                           System.out.println("TABELA CRIADA!");
                        }catch(SQLException e){
-                        JOptionPane.showMessageDialog(null," Erro Tabela -  "+ e.getLocalizedMessage());   
+                           System.out.println(" Erro Tabela -  "+ e.getLocalizedMessage());   
                        }
                        
                        }          
         } catch (ClassNotFoundException | SQLException ex) {
-             JOptionPane.showMessageDialog(null, ex.getMessage());
+             System.out.println(ex.getMessage());
         }
         return con;
     }
@@ -123,7 +123,7 @@ public class Conexao {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
             con = DriverManager.getConnection("jdbc:derby:.\\DataBase\\Derby.DB");
                 if(con != null){
-                     JOptionPane.showMessageDialog(null, "CONECTADO!");
+                     System.out.println("CONECTADO");
                 }
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("ERRO"+ex.getMessage());

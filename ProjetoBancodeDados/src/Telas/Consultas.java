@@ -1,6 +1,7 @@
 package Telas;
 
 import DAO.Inseredados;
+import DAO.LivroDAO;
 import DAO.UsuarioDAO;
 import conexao.Conexao;
 
@@ -74,13 +75,15 @@ public class Consultas extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
         );
 
-        busca.setBackground(new java.awt.Color(0, 0, 0));
+        busca.setBackground(new java.awt.Color(255, 255, 255));
         busca.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        busca.setForeground(new java.awt.Color(255, 255, 255));
+        busca.setForeground(new java.awt.Color(0, 0, 0));
+        busca.setCaretColor(new java.awt.Color(0, 0, 0));
+        busca.setEnabled(false);
 
-        buscar.setBackground(new java.awt.Color(0, 0, 0));
+        buscar.setBackground(new java.awt.Color(255, 255, 255));
         buscar.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        buscar.setForeground(new java.awt.Color(255, 255, 255));
+        buscar.setForeground(new java.awt.Color(0, 0, 0));
         buscar.setText("PESQUISAR");
         buscar.setEnabled(false);
         buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -90,19 +93,22 @@ public class Consultas extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("BUSCA:");
 
-        geral.setBackground(new java.awt.Color(153, 153, 153));
-        geral.setForeground(new java.awt.Color(255, 255, 255));
-        geral.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "USUÁRIOS", "OBRAS", "EMPRÉSTIMOS" }));
+        geral.setBackground(new java.awt.Color(255, 255, 255));
+        geral.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        geral.setForeground(new java.awt.Color(0, 0, 0));
+        geral.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "USUÁRIOS", "OBRAS", "EXEMPLARES" }));
         geral.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 geralItemStateChanged(evt);
             }
         });
 
-        especifico.setBackground(new java.awt.Color(153, 153, 153));
-        especifico.setForeground(new java.awt.Color(255, 255, 255));
+        especifico.setBackground(new java.awt.Color(255, 255, 255));
+        especifico.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        especifico.setForeground(new java.awt.Color(0, 0, 0));
         especifico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
         especifico.setEnabled(false);
         especifico.addItemListener(new java.awt.event.ItemListener() {
@@ -112,12 +118,15 @@ public class Consultas extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("TIPO DE BUSCA:");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("GERAL:");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("ESPECÍFICO:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,30 +138,30 @@ public class Consultas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 140, Short.MAX_VALUE)
+                        .addGap(0, 90, Short.MAX_VALUE)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(geral, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(33, 33, 33)
+                            .addComponent(jLabel3)
+                            .addComponent(geral, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(especifico, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(especifico, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(51, 51, 51)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(busca, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buscar)))))
+                                .addComponent(buscar))
+                            .addComponent(jLabel4))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -172,11 +181,7 @@ public class Consultas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-        // TODO add your handling code here:
-            //new Inseredados().insere();
-            UsuarioDAO user = new UsuarioDAO();
-            user.ConsultaUserP(new Conexao().Conect(), tabela);
-           // new Inseredados().insere();
+      
     }//GEN-LAST:event_buscarActionPerformed
 
     private void geralItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_geralItemStateChanged
@@ -195,15 +200,15 @@ public class Consultas extends javax.swing.JFrame {
                     break;
                 case 2:// OPÇÕES DE BUSCA PARA OBRAS
                     especifico.removeAllItems();
+                    especifico.addItem("EXEMPLARES");
                     especifico.addItem("DISPONÍVEIS");
                     especifico.addItem("INDISPONÍVEIS");
-                    especifico.addItem("AUTOR");
                     especifico.setEnabled(true);
                     break;
                 case 3: // OPÇÕES DE BUSCA PARA EMPRÉSTIMOS
                     especifico.removeAllItems();
                     especifico.addItem("TODOS");
-                    especifico.addItem("ATRASADOS");
+                    especifico.addItem("");
                     especifico.setEnabled(true);
                     break;
             }
@@ -214,20 +219,48 @@ public class Consultas extends javax.swing.JFrame {
         buscar.setEnabled(true);
             switch (especifico.getSelectedIndex()){
                 case 0:
-                    if(geral.getSelectedIndex() == 1)
+                    if(geral.getSelectedIndex() == 1){
                                     tabela.setModel(new javax.swing.table.DefaultTableModel(
                                          new Object [][] {},
                                         new String [] {
                                         "NOME", "CPF", "RG", "EMAIL", "TELEFONE", "RUA","BAIRRO","N°","CIDADE"}));
-                    break;
-                case 1:
-                    if(geral.getSelectedIndex() == 1)
+                   new UsuarioDAO().ConsultaUserP(new Conexao().Conect(), tabela);}
+                    if(geral.getSelectedIndex() == 2){
                                     tabela.setModel(new javax.swing.table.DefaultTableModel(
                                          new Object [][] {},
                                         new String [] {
-                                        "DATA DO EMPRÉSTIMO", "Nº EXEMPLAR","TÍTULO", "NOME DO USUÁRIO", "CPF", "AUTOR","ISBN"}));
+                                        "OBRA", "EXEMPLARES CADASTRADOS"}));
+                    new LivroDAO().ConsultaLivro(new Conexao().Conect(), tabela);}
+                    if(geral.getSelectedIndex() == 3){
+                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
+                                         new Object [][] {},
+                                        new String [] {
+                                        "N° EXEMPLAR", "TÍTULO", "AUTOR", "EDIÇÃO", "ANO", "STATUS"}));    //cod,titulo,autor, edicao,anoPub, status
+                    new LivroDAO().ConsultaEx(new Conexao().Conect(), tabela);}
+                                        
+                    break;
+                case 1:
+                    if(geral.getSelectedIndex() == 1){
+                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
+                                         new Object [][] {},
+                                        new String [] {
+                                        "NOME DO USUÁRIO", "DATA DO EMPRÉSTIMO","TÍTULO", "AUTOR", "ISBN"}));
+                    new UsuarioDAO().ConsultaEmp(new Conexao().Conect(), tabela);}
+                   
+                    if(geral.getSelectedIndex() == 2){
+                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
+                                         new Object [][] {},
+                                        new String [] {
+                                        "ISBN", "TÍTULO", "AUTOR", "EDITORA","ANO"}));     
+                    new LivroDAO().ConsultaLivrosDisp(new Conexao().Conect(), tabela);}
                     break;
                 case 2:
+                    if(geral.getSelectedIndex() == 2){
+                                    tabela.setModel(new javax.swing.table.DefaultTableModel(
+                                         new Object [][] {},
+                                        new String [] {
+                                        "ISBN", "TÍTULO", "AUTOR", "EDITORA","ANO"}));     
+                    new LivroDAO().ConsultaLivrosInd(new Conexao().Conect(), tabela);}
                     break;
                 case 3:
                     break;
@@ -242,7 +275,7 @@ public class Consultas extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

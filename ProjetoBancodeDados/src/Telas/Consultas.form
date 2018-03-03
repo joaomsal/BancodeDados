@@ -31,18 +31,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="painel" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="140" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="90" max="32767" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="geral" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="geral" min="-2" pref="119" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="especifico" min="-2" pref="88" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="especifico" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -50,6 +49,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="buscar" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -61,9 +61,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
@@ -179,26 +179,30 @@
     <Component class="javax.swing.JTextField" name="busca">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="12" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
+        <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buscar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="11" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="PESQUISAR"/>
         <Property name="enabled" type="boolean" value="false"/>
@@ -212,23 +216,29 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="11" style="1"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="BUSCA:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="geral">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="99" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="11" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="SELECIONE"/>
             <StringItem index="1" value="USU&#xc1;RIOS"/>
             <StringItem index="2" value="OBRAS"/>
-            <StringItem index="3" value="EMPR&#xc9;STIMOS"/>
+            <StringItem index="3" value="EXEMPLARES"/>
           </StringArray>
         </Property>
       </Properties>
@@ -242,10 +252,13 @@
     <Component class="javax.swing.JComboBox" name="especifico">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="99" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="11" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
@@ -266,6 +279,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="11" style="1"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="TIPO DE BUSCA:"/>
       </Properties>
     </Component>
@@ -274,6 +290,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="11" style="1"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="GERAL:"/>
       </Properties>
     </Component>
@@ -281,6 +300,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="11" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ESPEC&#xcd;FICO:"/>
       </Properties>

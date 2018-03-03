@@ -43,11 +43,9 @@ public class UsuarioDAO {
                Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT nome_user,cpf_user,rg_user, email_user, telefone_user, logradouro,bairro,"+ 
                         "num,cidade FROM USUARIO INNER JOIN ENDERECO ON (mora = id)");
-                //int i=0;
                     DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
                     dfm.setNumRows(0);
                         while (rs.next()){
-                             //   for (int i = 0; i< rs.getRow(); i++) {
                                 dfm.addRow(new Object[]{
                                     rs.getString("nome_user"),
                                     rs.getString("cpf_user"),
@@ -64,29 +62,19 @@ public class UsuarioDAO {
             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
         }   
     }
-            public void Consulta(Connection con, JTable tabela){
+            public void ConsultaEmp(Connection con, JTable tabela){
         try {
                Statement stmt = con.createStatement();
-               stmt.executeUpdate("INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,RESIDE_EM_ID_RESIDE) VALUES ('ooi','11','1','2010-10-10', 1)");/* +
-"INSERT INTO Endereco (logradouro,num,bairro,cidade,estado,cep) values ('rua',1,'bairro1','cidade1','estado1','cep1');" +
-"INSERT INTO reside_em (endereco_id) values (1)");
-               INSERT INTO USUARIO (nome_user,cpf_user,rg_user,dataNac_user,RESIDE_EM_ID_RESIDE) VALUES ('ooi','11','1','2010-10-10', 1)*/
-                ResultSet rs = stmt.executeQuery("SELECT LOGRADOURO, NUM, BAIRRO, CIDADE, ESTADO, CEP FROM APP.ENDERECO");
-                  while (rs.next()){
+                ResultSet rs = stmt.executeQuery("select data_emp,nome_user,titulo,autor, titulo.ISBN from emprestimo inner join usuario on cpf_user = usuario_cpf_user inner join titulo on emprestimo.ISBN = titulo.ISBN");
                              DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
                                 dfm.setNumRows(0);
-                                //for (Aluno a : alu) {
+                  while (rs.next()){
                                 dfm.addRow(new Object[]{
-                                    rs.getString("logradouro"),
-                                    rs.getString("num"),
-                                    rs.getString("bairro"),
-                                    rs.getString("cidade"),
-                                    rs.getString("estado"),
-                                   // rs.getString("cep"),
-                                   // rs.getString("bairro"),
-                                   // rs.getString("num"),
-                                    rs.getString("cep")});
-       // }
+                                    rs.getString("nome_user"),
+                                    rs.getString("data_emp"),
+                                    rs.getString("titulo"),
+                                    rs.getString("autor"),
+                                    rs.getString("titulo.isbn")});
                   } 
                   con.close();
                   JOptionPane.showMessageDialog(null,"ENCONTRADO!");
