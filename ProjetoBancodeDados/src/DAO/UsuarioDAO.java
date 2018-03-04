@@ -22,7 +22,7 @@ public class UsuarioDAO {
         public boolean insert (Usuario user){
   
         try { 
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO Usuario (Cpf_user,Nome_user, Rg_user, email_user,telefone_user,DATANAC_USER) VALUES(?,?,?,?,?,'2001-01-01')");
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO Usuario (Cpf_user,Nome_user, Rg_user, email_user,telefone_user,DATANAC_USER) VALUES(?,?,?,?,?,?)");
             stmt.setString(1, user.getCpf_user());
             stmt.setString(2, user.getRg_user());
             stmt.setString(3, user.getEmail_user());

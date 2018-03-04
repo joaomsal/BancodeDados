@@ -203,7 +203,7 @@ public class TelaBase extends javax.swing.JFrame {
             especifico.setEnabled(false);
             buscar.setEnabled(false);
             break;
-            case 1: // OPÇÕES DE BUSCA PARA USUÁRIOS
+            case 1: 
             especifico.removeAllItems();
             especifico.addItem("DADOS PESSOAIS");
             especifico.addItem("EMPRÉSTIMOS");
@@ -211,14 +211,14 @@ public class TelaBase extends javax.swing.JFrame {
             especifico.addItem("Nº DE EMPRÉSTIMOS: (>=)");
             especifico.setEnabled(true);
             break;
-            case 2:// OPÇÕES DE BUSCA PARA OBRAS
+            case 2:
             especifico.removeAllItems();
             especifico.addItem("TODOS");
             especifico.addItem("DISPONÍVEIS");
             especifico.addItem("INDISPONÍVEIS");
             especifico.setEnabled(true);
             break;
-            case 3: // OPÇÕES DE BUSCA PARA EMPRÉSTIMOS
+            case 3: 
             especifico.removeAllItems();
             especifico.addItem("Nº DE EXEMPLARES POR OBRA");
             especifico.addItem("OBRAS CADASTRADAS");
