@@ -57,7 +57,7 @@ public class UsuarioDAO {
                                     rs.getString("num"),
                                     rs.getString("cidade")});} 
                   con.close();
-                  JOptionPane.showMessageDialog(null,"ENCONTRADO!");
+                  JOptionPane.showMessageDialog(null,"BUSCA REALIZADA COM SUCESSO!");
             } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
         }   
@@ -77,9 +77,44 @@ public class UsuarioDAO {
                                     rs.getString("isbn")});
                   } 
                   con.close();
-                  JOptionPane.showMessageDialog(null,"ENCONTRADO!");
+                  JOptionPane.showMessageDialog(null,"BUSCA REALIZADA COM SUCESSO!");
             } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
         }   
     }
+            
+            public void ConsultaNemp(Connection con, JTable tabela, String consulta){
+        try {
+               Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("select nome_user,count(exemplar) as qt from usuario as u inner join emprestimo as e on u.CPF_USER= e.USUARIO_CPF_USER  where lower(nome_user) like lower('%"+consulta+"%') group by nome_user");
+                DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
+                dfm.setNumRows(0);  
+                while (rs.next()){
+                                dfm.addRow(new Object[]{
+                                    rs.getString("nome_user"),
+                                    rs.getString("qt")});
+                  } 
+                  con.close();
+                  JOptionPane.showMessageDialog(null,"BUSCA REALIZADA COM SUCESSO!");
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
+        }   }
+            
+            
+            public void ConsultaHaving(Connection con, JTable tabela, int qt){
+        try {
+               Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("select nome_user,count(exemplar) as qt from usuario as u inner join emprestimo as e on u.CPF_USER= e.USUARIO_CPF_USER group by nome_user having count(exemplar)>=" +qt);
+                DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
+                dfm.setNumRows(0);  
+                while (rs.next()){
+                                dfm.addRow(new Object[]{
+                                    rs.getString("nome_user"),
+                                    rs.getString("qt")});
+                  } 
+                  con.close();
+                  JOptionPane.showMessageDialog(null,"BUSCA REALIZADA COM SUCESSO!");
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
+        }   }
 }

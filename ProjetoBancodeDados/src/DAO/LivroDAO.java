@@ -31,10 +31,12 @@ public class LivroDAO {
                                     rs.getString("QUANTIDADE")});
                   } 
                   con.close();
-                  JOptionPane.showMessageDialog(null,"ENCONTRADO!");
+                  JOptionPane.showMessageDialog(null,"BUSCA REALIZADA COM SUCESSO!");
             } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
         }   }
+            
+            
             public void ConsultaSimples(Connection con, JTable tabela, String consulta){
         try {
                Statement stmt = con.createStatement();
@@ -48,6 +50,27 @@ public class LivroDAO {
                                     rs.getString("autor"),
                                     rs.getString("editora_obra"),
                                     rs.getString("anopub")});
+                  } 
+                  con.close();
+                  JOptionPane.showMessageDialog(null,"ENCONTRADO!");
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
+        }   }
+            
+            
+            public void ConsultaPorAutor(Connection con, JTable tabela, String consulta){
+        try {
+               Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT isbn, titulo,autor, editora_obra, anopub from titulo where lower(autor) like lower('%"+consulta+"%')");
+                DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
+                dfm.setNumRows(0);  
+                while (rs.next()){
+                                dfm.addRow(new Object[]{
+                                        rs.getString("autor"), // AUTOR, TITULO, EDITORA, ANOPUB, ISBN
+                                    rs.getString("titulo"),
+                                    rs.getString("editora_obra"),
+                                    rs.getString("anopub"),
+                                    rs.getString("isbn")});
                   } 
                   con.close();
                   JOptionPane.showMessageDialog(null,"ENCONTRADO!");
@@ -72,7 +95,7 @@ public class LivroDAO {
                                     rs.getString("status")});
                   } 
                   con.close();
-                  JOptionPane.showMessageDialog(null,"ENCONTRADO!");
+                  JOptionPane.showMessageDialog(null,"BUSCA REALIZADA COM SUCESSO!");
             } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
         }   }
@@ -95,7 +118,7 @@ public class LivroDAO {
                                     rs.getString("anoPub")});
                   } 
                   con.close();
-                  JOptionPane.showMessageDialog(null,"ENCONTRADO!");
+                  JOptionPane.showMessageDialog(null,"BUSCA REALIZADA COM SUCESSO!");
             } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
         }   
@@ -116,7 +139,7 @@ public class LivroDAO {
                                     rs.getString("anoPub")});
                   } 
                   con.close();
-                  JOptionPane.showMessageDialog(null,"ENCONTRADO!");
+                  JOptionPane.showMessageDialog(null,"BUSCA REALIZADA COM SUCESSO!");
             } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
         }   
@@ -139,7 +162,7 @@ public class LivroDAO {
                                     });
                   } 
                   con.close();
-                  JOptionPane.showMessageDialog(null,"ENCONTRADO!");
+                  JOptionPane.showMessageDialog(null,"BUSCA REALIZADA COM SUCESSO!");
             } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getLocalizedMessage());
         }   

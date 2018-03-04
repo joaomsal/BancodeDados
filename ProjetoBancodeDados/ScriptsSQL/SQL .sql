@@ -52,7 +52,7 @@ CREATE TABLE Exemplar (
     REFERENCES Titulo (ISBN)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-data_emp, Usuario_Cpf_user, ISBN, Exemplar
+
 
 CREATE TABLE Emprestimo (
   data_emp DATE NOT NULL,

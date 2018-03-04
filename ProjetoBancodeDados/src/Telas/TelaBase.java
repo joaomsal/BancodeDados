@@ -207,6 +207,8 @@ public class TelaBase extends javax.swing.JFrame {
             especifico.removeAllItems();
             especifico.addItem("DADOS PESSOAIS");
             especifico.addItem("EMPRÉSTIMOS");
+            especifico.addItem("Nº DE EMPRÉSTIMOS");
+            especifico.addItem("Nº DE EMPRÉSTIMOS: (>=)");
             especifico.setEnabled(true);
             break;
             case 2:// OPÇÕES DE BUSCA PARA OBRAS
@@ -220,6 +222,7 @@ public class TelaBase extends javax.swing.JFrame {
             especifico.removeAllItems();
             especifico.addItem("Nº DE EXEMPLARES POR OBRA");
             especifico.addItem("OBRAS CADASTRADAS");
+            especifico.addItem("OBRAS POR AUTOR");
             especifico.setEnabled(true);
             break;
         }
@@ -241,7 +244,7 @@ public class TelaBase extends javax.swing.JFrame {
             tabela.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {},
                 new String [] {
-                    "OBRA", "EXEMPLARES CADASTRADOS"}));
+                    "TÍTULO DA OBRA", "EXEMPLARES CADASTRADOS"}));
         busca.setText("");
         busca.setEnabled(true);}
         if(geral.getSelectedIndex() == 2){
@@ -278,6 +281,13 @@ public class TelaBase extends javax.swing.JFrame {
         busca.setEnabled(true);}  //isbn, titulo, autor, editora, ano
         break;
         case 2:
+        if(geral.getSelectedIndex() == 1){
+            tabela.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {},
+                new String [] {
+                    "NOME DO USUÁRIO","N° DE EMPRÉSTIMOS"}));
+        busca.setText("");
+        busca.setEnabled(true);}
         if(geral.getSelectedIndex() == 2){
             tabela.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {},
@@ -285,8 +295,23 @@ public class TelaBase extends javax.swing.JFrame {
                     "N° EXEMPLAR", "ISBN", "TÍTULO", "AUTOR", "EDITORA","ANO"}));
         busca.setText("");
         busca.setEnabled(true);}
-
+        if(geral.getSelectedIndex() == 3){
+            tabela.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {},
+                new String [] { // AUTOR, TITULO, EDITORA, ANOPUB, ISBN
+                    "AUTOR DA OBRA", "TÍTULO", "EDITORA", "ANO","ISBN"}));
+        busca.setText("");
+        busca.setEnabled(true);}
         break;
+        case 3: 
+            if(geral.getSelectedIndex() == 1){
+            tabela.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {},
+                new String [] {
+                    "NOME DO USUÁRIO","N° DE EMPRÉSTIMOS"}));
+        busca.setText("");
+        busca.setEnabled(true);}
+            break;
         }
     }//GEN-LAST:event_especificoItemStateChanged
 
@@ -296,16 +321,23 @@ public class TelaBase extends javax.swing.JFrame {
             new LivroDAO().ConsultaLivro(new Conexao().Conect(), tabela,busca.getText()); }
         if(geral.getSelectedIndex() == 3 && especifico.getSelectedIndex()==1){
             new LivroDAO().ConsultaSimples(new Conexao().Conect(), tabela,busca.getText());}
+        if(geral.getSelectedIndex() == 3 && especifico.getSelectedIndex()==2){
+            new LivroDAO().ConsultaPorAutor(new Conexao().Conect(), tabela,busca.getText());}
         if(geral.getSelectedIndex() == 1 && especifico.getSelectedIndex()==0){
             new UsuarioDAO().ConsultaUserP(new Conexao().Conect(), tabela,busca.getText());}
         if(geral.getSelectedIndex() == 1 && especifico.getSelectedIndex()==1){
             new UsuarioDAO().ConsultaEmp(new Conexao().Conect(), tabela, busca.getText());}
+        if(geral.getSelectedIndex() == 1 && especifico.getSelectedIndex()==2){
+            new UsuarioDAO().ConsultaNemp(new Conexao().Conect(), tabela,busca.getText());}
+        if(geral.getSelectedIndex() == 1 && especifico.getSelectedIndex()==3){
+            new UsuarioDAO().ConsultaHaving(new Conexao().Conect(), tabela,Integer.parseInt(busca.getText()));}
         if(geral.getSelectedIndex() == 2 && especifico.getSelectedIndex()== 0){
             new LivroDAO().ConsultaEx(new Conexao().Conect(), tabela,busca.getText());}
         if(geral.getSelectedIndex() == 2 && especifico.getSelectedIndex()==1){
             new LivroDAO().ConsultaLivrosDisp(new Conexao().Conect(), tabela,busca.getText());}
         if(geral.getSelectedIndex() == 2 && especifico.getSelectedIndex()==2){
             new LivroDAO().ConsultaLivrosInd(new Conexao().Conect(), tabela,busca.getText());}
+         
     }//GEN-LAST:event_buscarActionPerformed
 
     /**
